@@ -8,6 +8,9 @@ import { HotelsModule } from './modules/hotels/hotels.module';
 import { UsersModule } from './modules/users/users.module';
 import configuration from './configs/configuration';
 import { UsersController } from './modules/users/users.controller';
+import { BookingModule } from './modules/booking/booking.module';
+import { PropertyModule } from './modules/property/property.module';
+import { ReviewsModule } from './modules/reviews/reviews.module';
 
 @Module({
   imports: [
@@ -19,6 +22,9 @@ import { UsersController } from './modules/users/users.controller';
     DatabaseModule,
     UsersModule,
     HotelsModule,
+    BookingModule,
+    PropertyModule,
+    ReviewsModule,
   ],
   controllers: [AppController, UsersController],
   providers: [AppService],
