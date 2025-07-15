@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { envValidationSchema } from './configs/env.validation';
 import { DatabaseModule } from './database/database.module';
-import { HotelsModule } from './modules/hotels/hotels.module';
 import { UsersModule } from './modules/users/users.module';
 import configuration from './configs/configuration';
 import { UsersController } from './modules/users/users.controller';
@@ -21,7 +20,6 @@ import { ReviewsModule } from './modules/reviews/reviews.module';
     }),
     DatabaseModule,
     UsersModule,
-    HotelsModule,
     BookingModule,
     PropertyModule,
     ReviewsModule,

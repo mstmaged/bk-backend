@@ -17,7 +17,7 @@ export class Review {
   @JoinColumn({ name: 'booking_id' })
   booking: Booking;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'decimal' })
   rating: number; // usually 1 to 5
 
   @Column({ type: 'text', nullable: true })
