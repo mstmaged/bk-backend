@@ -5,9 +5,11 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   BeforeInsert,
+  OneToMany,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { UserRole } from 'src/common/enum/user-role.enum'; // from step 1
+import { Property } from 'src/modules/property/entities/property.entity';
 
 @Entity('users')
 export class User {
@@ -29,6 +31,9 @@ export class User {
     default: UserRole.GUEST,
   })
   role: UserRole;
+
+  @OneToMany(() => Property, (property) => property.user)
+  properties: Property[];
 
   @CreateDateColumn()
   createdAt: Date;

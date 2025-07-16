@@ -1,10 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateBookingDto } from './dto/create-booking.dto';
 import { UpdateBookingDto } from './dto/update-booking.dto';
+import { DataSource, Repository } from 'typeorm';
+import { Booking } from './entities/booking.entity';
 
 @Injectable()
 export class BookingService {
-  create(createBookingDto: CreateBookingDto) {
+  bookingRepo: Repository<Booking>;
+  constructor(@Inject('DATA_SOURCE') private dataSource: DataSource) {
+    this.bookingRepo = this.dataSource.getRepository(Booking);
+  }
+  create(_createBookingDto: CreateBookingDto) {
+    console.log(_createBookingDto);
+
     return 'This action adds a new booking';
   }
 
@@ -17,6 +25,8 @@ export class BookingService {
   }
 
   update(id: number, updateBookingDto: UpdateBookingDto) {
+    console.log(updateBookingDto);
+
     return `This action updates a #${id} booking`;
   }
 
